@@ -1,0 +1,159 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+    /* Strict no-scroll */
+}
+
+/* CRT Screen Effect */
+.crt::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg,
+            rgba(255, 0, 0, 0.06),
+            rgba(0, 255, 0, 0.02),
+            rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+/* Screen Flicker */
+@keyframes flicker {
+    0% {
+        opacity: 0.97;
+    }
+
+    5% {
+        opacity: 0.95;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    15% {
+        opacity: 0.95;
+    }
+
+    20% {
+        opacity: 0.99;
+    }
+
+    25% {
+        opacity: 0.95;
+    }
+
+    30% {
+        opacity: 0.9;
+    }
+
+    35% {
+        opacity: 0.96;
+    }
+
+    40% {
+        opacity: 0.98;
+    }
+
+    45% {
+        opacity: 0.95;
+    }
+
+    50% {
+        opacity: 0.99;
+    }
+
+    55% {
+        opacity: 0.93;
+    }
+
+    60% {
+        opacity: 0.9;
+    }
+
+    65% {
+        opacity: 0.96;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 0.97;
+    }
+
+    80% {
+        opacity: 0.95;
+    }
+
+    85% {
+        opacity: 0.92;
+    }
+
+    90% {
+        opacity: 0.98;
+    }
+
+    95% {
+        opacity: 0.95;
+    }
+
+    100% {
+        opacity: 0.96;
+    }
+}
+
+#logo-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: flicker 0.15s infinite;
+}
+
+#ascii-logo {
+    font-family: 'Courier New', Courier, monospace;
+    white-space: pre;
+    margin: 0;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+
+    /* Color Cycle with CRT Glow */
+    animation: colorCycle 2s linear infinite; /* Faster speed */
+    text-shadow: 0 0 4px currentColor, 0 0 10px rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+}
+
+@keyframes colorCycle {
+    0% { color: hsl(0, 100%, 50%); }
+    10% { color: hsl(36, 100%, 50%); }
+    20% { color: hsl(72, 100%, 50%); }
+    30% { color: hsl(108, 100%, 50%); }
+    40% { color: hsl(144, 100%, 50%); }
+    50% { color: hsl(180, 100%, 50%); }
+    60% { color: hsl(216, 100%, 50%); }
+    70% { color: hsl(252, 100%, 50%); }
+    80% { color: hsl(288, 100%, 50%); }
+    90% { color: hsl(324, 100%, 50%); }
+    100% { color: hsl(360, 100%, 50%); }
+}
